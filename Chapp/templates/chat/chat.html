@@ -1,0 +1,26 @@
+{% extends 'Chapp/navbar.html' %}
+
+{% block body %}
+
+{% for i in data %}
+<ul class="list-group m-4">
+<li class="list-group-item"><h4>{{i.sender}}</h4 class="font-weight-bold"><h6>: {{i.message}}</h6></li>
+</ul>
+{% endfor %}
+<div class="fixed-bottom mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card-body">
+
+<form method="POST" action="">
+    <div class="card-body d-inline-flex">
+    {% csrf_token %}
+    <input class="form-control m-3" autocomplete="off" name="message">
+    <input class="btn btn-primary m-3" type="submit">
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

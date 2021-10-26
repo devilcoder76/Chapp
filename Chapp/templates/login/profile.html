@@ -1,0 +1,25 @@
+{% extends 'Chapp/navbar.html' %}
+{% block body %}
+
+<h4 class="font-weight-bold m-4">Looks Good !</h4>
+<div class="shadow-sm  text-center m-5">
+            <img class="img-circle m-3" style="border-radius: 40%;" src="{{data.pro_image.url}}" height=140 width=140>
+<h1 class="m-3"> {{data.fname}} {{data.lname}}</h1>
+        </div>
+<h4 class="font-weight-bold m-4 p-3">Photos</h4>
+<div class="row m-2">        
+{%for img in image %}
+    <div class="col-sm">
+        <div class="card-body text-center border border-info shadow-sm">
+        <img class=" img-rounded m-3 p-2" src="{{img.image.url}}" height=400 width=40%>
+        <h5 class="p-2">{{i.caption}}</h5>
+        <h6>Likes:{{i.likes}}</h6><h6>Comments:{{i.comments}}</h6>
+        <a class="btn btn-primary" href="{% url 'newsfeed:like_User' img.id %}">Like</a>
+        <a class="btn btn-primary" href="{% url 'newsfeed:dislike_User' img.id %}">Dislike</a> 
+        <a class="btn btn-primary" href="{% url 'newsfeed:comment_User' img.id %}">Comment</a>
+
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

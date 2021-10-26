@@ -1,0 +1,28 @@
+{% extends 'Chapp/navbar.html' %}
+{% block body %}
+<div class="justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-4">
+        <label class="control-label"><h6 class="m-1">Please enter the following details below</h6></label>     
+<form method="POST" class="form-horizontal" enctype="multipart/form-data">
+    <div class="card-body">
+    {% csrf_token %}
+    <label class="control-label">First Name</label>
+    <input class="form-control" autocomplete="off" name="fname">
+    <label class="control-label">Last Name</label>
+    <input class="form-control" autocomplete="off" name="lname">
+    <label class="control-label">UserName</label>
+    <input class="form-control" autocomplete="off" name="username">
+    <label class="control-label">Password</label>
+    <input class="form-control" name="password" type="password">
+    <input class="form-control" type="file" name="pro_image">
+    <input class="btn btn-primary" type="submit">
+    </div>
+</form>
+    
+</div>
+</div>
+</div>
+
+
+{% endblock %}

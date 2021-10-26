@@ -1,0 +1,33 @@
+{% extends 'Chapp/navbar.html' %}
+
+{%block body%}
+
+{% if messages %}
+{{messages}}
+{% endif %}
+<div class="justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card-body">
+                <h5 class="font-weight-bold">
+                    Select your photo to upload
+                </h5>
+                     
+<form method="POST" enctype="multipart/form-data">
+    <div class="form md-4 p-2">
+    {% csrf_token %}
+    <input type="file" class="form-control" name="feed_img">
+    <h6 class="font-weight-bold p-3 m-3">
+        Enter caption:
+    </h6>
+    <input class="form-control p-1" autocomplete="off" type="text" name="feed_caption">
+
+    <input class="btn btn-primary m-3"type="submit">
+    </div>
+
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

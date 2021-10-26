@@ -1,0 +1,26 @@
+{% extends 'Chapp/navbar.html' %}
+
+{% block body %}
+
+<div class="justify-content-center align-items-center mt-5" style="overflow: scroll;">
+    <div class="row">
+            <div class="shadow-lg text-center">
+                <img class="img m-5 rounded-3" src='{{img_url}}' width="300" height="250">
+            </div>
+            <form method='POST' action="">
+                <div class="card-body mx-2 px-2">
+                {% csrf_token %}
+                <input class="form-control mx-2 shadow-lg" autocomplete="off" type="text" name="comment">
+                <input class="btn btn-primary m-3" type="submit" value="POST">
+            </div>
+            </form>
+            <h4 class="font-weight-bold mx-4">Comments</h4>
+<ul class="list-group m-5">
+{% for i in data %}
+ <li class="list-group-item"><h5 class="font-weight-bold">{{i.username}}: {{i.comment}}</h5></li> 
+{% endfor %}
+</ul>
+</div>
+</div>
+
+{% endblock %}

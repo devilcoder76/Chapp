@@ -1,0 +1,19 @@
+{% extends 'Chapp/navbar.html' %}
+{% block body %}
+
+<div class="row">
+    <div class="d-flex text-center justify-content-center m-3">
+<form method="POST" class="form-horizontal ">
+    <div class="card-body">
+    {% csrf_token %}
+        <label class="control-label mx-3"><h6>Username</h6></label>
+        <input class="form-control mx-4" autocomplete="off" type="text" name="username" placeholder="Username here">
+        <label class="control-label mx-3"><h6>Password</h6></label>
+        <input class="form-control mx-4" type="password" name="password" placeholder="Password here">
+        <input class="btn btn-primary m-3" type="submit" value="Login">
+    </div>
+</form>
+</div>
+</div>
+
+{% endblock %}

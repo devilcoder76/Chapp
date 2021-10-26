@@ -1,0 +1,29 @@
+{% extends 'Chapp/navbar.html' %}
+{%block body %}
+<div class="justify-content-center align-items-center mt-3">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="font-weight-bold p-2">Try to search your peeps</label>
+
+<form class="form" method="POST">
+    <div class="card-body">
+{% csrf_token %}
+<input class="shadow-sm mr-5 pt-2 bg-white rounded" autocomplete="off" type="text" name="search"> 
+<input class="btn btn-primary" type="submit" value="Search">
+    </div>
+</form>
+</div>
+</div>
+</div>
+<ul class="list-group">
+{% for i in data%}
+    <li class="list-group-item d-inline-flex">
+        <img class="rounded-circle m-3" src="{{i.pro_image.url}}" width=40 height=40>
+        <h4 class="font-weight-bold m-2 "><a class="text-decoration-none" href="{% url 'login:profile' i.id %}">{{i.fname}} {{i.lname}}</a></h4>
+    {%if user != i.username %}
+        <a class="btn btn-primary m-3 p-2" href="{% url 'login:add_friend' i.id %}">Add Friend</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}

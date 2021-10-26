@@ -1,0 +1,13 @@
+{% extends "Chapp/navbar.html" %}
+{% block body%}
+<h2>{{message}}<h2>
+
+<h3 class="font-weight-bold m-3">FriendsList</h6>
+<ul class="list-group m-3">
+{% for i in data%}
+    <li class="list-group-item mx-4">
+        <h4><a class="text-justify text-decoration-none" href="{% url 'login:profile' i.id %}">{{i.fname}} {{i.lname}}</a>
+        <a class="btn btn-primary m-2" href="{%url 'chat:chat_User' i.username %}">Chat</a>
+    </h6></li>
+{% endfor %}
+{% endblock %}
