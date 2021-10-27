@@ -1,7 +1,6 @@
 Hi...
 
-Welcome to my social media project. I made this in 1 day...
-
+Welcome to our social media project. 
 It contains the basic features of social media
 
 Chats
